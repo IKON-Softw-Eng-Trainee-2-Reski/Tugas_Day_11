@@ -16,8 +16,11 @@ import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.CannotCreateTransactionException;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @RestController
@@ -30,7 +33,6 @@ public class UserController {
     @Operation(summary = "Get all User")
     @GetMapping(path="v1/user")
     public ResponseEntity<List<User>> getUser() {
-        System.out.println("usesssssss");
         log.info("[user] v1/user is called");
         try {
             ResponseEntity<List<User>> response = new ResponseEntity<>(userService.getUser(), HttpStatus.OK);

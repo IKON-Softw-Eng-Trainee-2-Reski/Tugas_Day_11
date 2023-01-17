@@ -22,7 +22,7 @@ public class UserService {
         log.info("[user] REPOSITORY SIZE IS: " + size);
         Integer newId = (int) size + 1;
         log.info("[user] newId IS: " + newId);
-        User user = new User(newId, addedUser.getEmail(), addedUser.getPasword());
+        User user = new User(newId, addedUser.getEmail(), addedUser.getPassword());
 
         userRepository.save(user);
         log.info("[user] newly added user in repository is: " + userRepository.findById(newId).get());

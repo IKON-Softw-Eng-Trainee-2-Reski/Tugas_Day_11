@@ -1,7 +1,9 @@
 package com.clean.database.demo.entity;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,8 @@ import javax.persistence.Table;
 @Table(name="users")
 @NoArgsConstructor
 @EqualsAndHashCode
+@Setter
+@Getter
 public class User {
     @Id
     @Column(name="id")
@@ -20,36 +24,14 @@ public class User {
     @Column(name="email")
     private String email;
 
-    @Column(name="pasword")
-    private String pasword;
+    @Column(name="password")
+    private String password;
 
-    public User(int id, String email, String pasword) {
+    public User(int id, String email, String password) {
         this.id = id;
         this.email = email;
-        this.pasword = pasword;
+        this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPasword() {
-        return pasword;
-    }
-
-    public void setPassword(String pasword) {
-        this.pasword = pasword;
-    }
 }
