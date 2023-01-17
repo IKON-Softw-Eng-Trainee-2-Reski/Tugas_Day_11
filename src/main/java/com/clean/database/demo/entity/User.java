@@ -10,28 +10,29 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+
+import lombok.Data;
+
+import javax.persistence.*;
+
 @Table(name="users")
 @NoArgsConstructor
 @EqualsAndHashCode
 @Setter
 @Getter
-public class User {
-    @Id
-    @Column(name="id")
-    private int id;
 
-    @Column(name="email")
+@Entity(name = "users")
+@Data
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, length = 50)
     private String email;
 
-    @Column(name="password")
+    @Column(nullable = false, length = 50)
     private String password;
-
-    public User(int id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
-
 
 }
